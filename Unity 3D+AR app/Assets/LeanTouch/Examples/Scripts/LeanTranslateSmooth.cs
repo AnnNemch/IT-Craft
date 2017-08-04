@@ -57,7 +57,7 @@ namespace Lean.Touch
 			// Get t value
 			var factor = LeanTouch.GetDampenFactor(Dampening, Time.deltaTime);
 
-            //&&&&&&&&
+            //Set zero value to Y axis to move the object only on XZ axis
             RemainingDelta.y = 0f;
 
             // Dampen remainingDelta

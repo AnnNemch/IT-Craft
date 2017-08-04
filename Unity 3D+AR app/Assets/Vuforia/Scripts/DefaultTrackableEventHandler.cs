@@ -85,10 +85,8 @@ namespace Vuforia
 
             Debug.Log("Trackable " + mTrackableBehaviour.TrackableName + " found");
 
-            // Hide the canvas with information overlay
+            // Hide the canvas with information overlay if target found
             Canvas[] canvasComponents = GetComponentsInChildren<Canvas>(true);
-
-            //Disable canvas:
             foreach (Canvas component in canvasComponents)
             {
                 component.enabled = false;
