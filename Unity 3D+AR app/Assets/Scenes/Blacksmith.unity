@@ -205,7 +205,7 @@ GameObject:
   - component: {fileID: 107863755}
   - component: {fileID: 107863754}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -242,7 +242,7 @@ MonoBehaviour:
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
-  m_ScreenMatchMode: 0
+  m_ScreenMatchMode: 1
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
@@ -623,7 +623,7 @@ GameObject:
   - component: {fileID: 312232951}
   - component: {fileID: 312232954}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -645,7 +645,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 20, y: 20}
-  m_SizeDelta: {x: 65, y: 65}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &312232951
 MonoBehaviour:
@@ -891,6 +891,22 @@ Prefab:
     - target: {fileID: 400002, guid: bf30d577eead1ef40bcf2b404289daf4, type: 2}
       propertyPath: m_LocalPosition.z
       value: -24
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000000, guid: bf30d577eead1ef40bcf2b404289daf4, type: 2}
+      propertyPath: m_ClearFlags
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000000, guid: bf30d577eead1ef40bcf2b404289daf4, type: 2}
+      propertyPath: m_BackGroundColor.r
+      value: 0.41035897
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000000, guid: bf30d577eead1ef40bcf2b404289daf4, type: 2}
+      propertyPath: m_BackGroundColor.g
+      value: 0.57544595
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000000, guid: bf30d577eead1ef40bcf2b404289daf4, type: 2}
+      propertyPath: m_BackGroundColor.b
+      value: 0.8455882
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bf30d577eead1ef40bcf2b404289daf4, type: 2}
@@ -1908,7 +1924,6 @@ GameObject:
   - component: {fileID: 1009131191}
   - component: {fileID: 1009131187}
   - component: {fileID: 1009131192}
-  - component: {fileID: 1009131193}
   - component: {fileID: 1009131195}
   m_Layer: 0
   m_Name: char_ethan_Head
@@ -1944,10 +1959,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.12
+  m_Radius: 0.11
   m_Height: 0.35
   m_Direction: 0
-  m_Center: {x: -0.13, y: -0.01, z: 0}
+  m_Center: {x: -0.14, y: -0.01, z: 0}
 --- !u!114 &1009131188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2031,23 +2046,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particle: {fileID: 198000011254678926, guid: abb9f519b142e304d9c45b56afa768bc, type: 2}
---- !u!114 &1009131193
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1009131185}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4831ffe36bec6d4f9480111c9e95ae1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  particles: {fileID: 198000011254678926, guid: abb9f519b142e304d9c45b56afa768bc,
-    type: 2}
-  model: {fileID: 270325185}
-  ClickDelay: 0.5
-  currClicks: 0
-  clickTime: 0
+  head: {fileID: 1009131185}
 --- !u!95 &1009131194
 Animator:
   serializedVersion: 3
@@ -2801,6 +2800,14 @@ Transform:
 GameObject:
   m_PrefabParentObject: {fileID: 100002, guid: bf30d577eead1ef40bcf2b404289daf4, type: 2}
   m_PrefabInternal: {fileID: 350658651}
+--- !u!45 &1395215767
+Skybox:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1395215766}
+  m_Enabled: 1
+  m_CustomSkybox: {fileID: 0}
 --- !u!114 &1395215772
 MonoBehaviour:
   m_ObjectHideFlags: 0

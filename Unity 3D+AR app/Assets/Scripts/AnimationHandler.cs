@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-//This script allows to play animation if user taps/clicks 5 times on the collider
+//This script allows to play animation if user taps/clicks 5 times on the head
 public class AnimationHandler : MonoBehaviour
 {
     public GameObject model;
@@ -13,7 +13,7 @@ public class AnimationHandler : MonoBehaviour
     private float lastClickTime = 0;
     //Time between clicks/taps
     private float timeInterval = 0.4f;
-    
+
     void Update()
     {
         ClickCounter();
@@ -43,7 +43,7 @@ public class AnimationHandler : MonoBehaviour
         }
 
         //Checks if the time since the last click doesn`t exceed needed time interval
-        if(currentCount != 0 && lastClickTime <= timeInterval)
+        if (currentCount != 0 && lastClickTime <= timeInterval)
         {
             lastClickTime += Time.deltaTime;
             return;
@@ -56,6 +56,6 @@ public class AnimationHandler : MonoBehaviour
         //Reset values
         currentCount = 0;
         lastClickTime = 0;
-    }  
+    }
 
 }
