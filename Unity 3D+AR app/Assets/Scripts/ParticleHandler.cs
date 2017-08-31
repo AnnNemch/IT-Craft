@@ -6,22 +6,19 @@ public class ParticleHandler : MonoBehaviour
 {
     //Particle system that have to be instantiated
     public ParticleSystem particle;
-    public GameObject head;
 
-    void Update()
+    private void OnMouseUp()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            RaycastHit hit;
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-            //Checks if the ray hit the head
-            if (Physics.Raycast(ray, out hit) && hit.collider.gameObject.GetInstanceID() == head.GetInstanceID())
-            {
-                ParticleSystem clone = Instantiate(particle, hit.point, hit.transform.rotation, hit.transform);
-                Destroy(clone.gameObject, 1);
-            }
+        //Checks if the ray hit the head
+        if (Physics.Raycast(ray, out hit))
+        {
+            ParticleSystem clone = Instantiate(particle, hit.point, hit.transform.rotation, hit.transform);
+            Destroy(clone.gameObject, 1);
         }
+
     }
 }
 

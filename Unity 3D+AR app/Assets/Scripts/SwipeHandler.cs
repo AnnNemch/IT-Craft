@@ -4,22 +4,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-//This script detects dragging gestures on screen and controls the character movements 
+//This script detects dragging gestures on screen 
 public class SwipeHandler : MonoBehaviour
 {
-    public GameObject model;
-
-    private Animator animator;
+    private bool doubleTouch, left, right, up, down;
     private Vector2 startTouch, swipeDelta;
     private bool isDragging = false;
 
-    private void Start()
-    {
-        animator = model.GetComponent<Animator>();
-    }
-
     private void Update()
     {
+        doubleTouch = left = right = up = false;
+
         //If the app is tested on a computer (works without character jumping)
         if (Input.GetMouseButtonDown(0))
         {
@@ -35,7 +30,7 @@ public class SwipeHandler : MonoBehaviour
         //For testing the app with mobile phone
         //Plays 'jump' animation if the user touches screen with two fingers
         if (Input.touchCount == 2 && Input.GetTouch(0).phase == TouchPhase.Ended)
-            animator.SetTrigger("Jump");
+            doubleTouch = true;
         //If user touches the screen with one finger
         else if (Input.touchCount == 1)
         {
@@ -89,47 +84,24 @@ public class SwipeHandler : MonoBehaviour
             {
                 //horizontal
                 if (x < 0) //left
-                    OnDraggingLeft();
+                    left = true;
                 else //right
-                    OnDraggingRight();
+                    right = true;
             }
             else
             {
                 //vertical
                 if (y > 0) //up                    
-                    OnDraggingUp();
+                    up = true;
             }
 
             Reset();
 
         }
     }
-
-    //Functions for playing specific animations 
-
-    private void OnDraggingUp()
-    {
-        if (!animator.GetCurrentAnimatorStateInfo(0).IsTag("Run"))
-            animator.SetTrigger("Run");
-    }
-
-    private void OnDraggingRight()
-    {
-        if (animator.GetCurrentAnimatorStateInfo(0).IsTag("CrouchIdle"))
-            animator.SetTrigger("CrouchRight");
-        else if (animator.GetCurrentAnimatorStateInfo(0).IsTag("Run"))
-            animator.SetTrigger("RunRight");
-        else
-            animator.SetTrigger("StandTurnRight");
-    }
-
-    private void OnDraggingLeft()
-    {
-        if (animator.GetCurrentAnimatorStateInfo(0).IsTag("CrouchIdle"))
-            animator.SetTrigger("CrouchLeft");
-        else if (animator.GetCurrentAnimatorStateInfo(0).IsTag("Run"))
-            animator.SetTrigger("RunLeft");
-        else
-            animator.SetTrigger("StandTurnLeft");
-    }
+     
+    public bool Left { get { return left; } }
+    public bool Right { get { return right; } }
+    public bool Up { get { return up; } }
+    public bool DoubleTouch { get { return doubleTouch; } }
 }

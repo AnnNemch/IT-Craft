@@ -6,9 +6,9 @@ using UnityEngine.SceneManagement;
 //This script allows to load the needed scene by index
 public class MenuHandler : MonoBehaviour
 {
-    public void SceneLoad(int sceneIndex)
+    public void SceneLoad(string sceneName)
     {
-        SceneManager.LoadScene(sceneIndex);
+        SceneManager.LoadScene(sceneName);
     }
 	
 }

@@ -15,15 +15,15 @@ namespace Vuforia
                                                 ITrackableEventHandler
     {
         #region PRIVATE_MEMBER_VARIABLES
- 
+
         private TrackableBehaviour mTrackableBehaviour;
-    
+
         #endregion // PRIVATE_MEMBER_VARIABLES
 
 
 
         #region UNTIY_MONOBEHAVIOUR_METHODS
-    
+
         void Start()
         {
             mTrackableBehaviour = GetComponent<TrackableBehaviour>();
@@ -84,13 +84,6 @@ namespace Vuforia
             }
 
             Debug.Log("Trackable " + mTrackableBehaviour.TrackableName + " found");
-
-            // Hide the canvas with information overlay if target found
-            Canvas[] canvasComponents = GetComponentsInChildren<Canvas>(true);
-            foreach (Canvas component in canvasComponents)
-            {
-                component.enabled = false;
-            }
         }
 
 

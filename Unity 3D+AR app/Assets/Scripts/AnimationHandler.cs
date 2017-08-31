@@ -13,30 +13,23 @@ public class AnimationHandler : MonoBehaviour
     private float lastClickTime = 0;
     //Time between clicks/taps
     private float timeInterval = 0.4f;
+    private Animator animator;
+
+    void Start()
+    {
+        animator = model.GetComponent<Animator>();
+    }
 
     void Update()
     {
         ClickCounter();
     }
 
-    //Checks if the user taps/clicks on a collider
-    private bool OnCollider()
-    {
-        if (Input.GetMouseButtonUp(0))
-        {
-            RaycastHit hit;
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out hit) && hit.collider != null)
-                return true;
-        }
-        return false;
-    }
-
     //Counts mouse clicks, and if the amount of serial clicks is 5, the animation of GameObject is played
     private void ClickCounter()
     {
         //If the user taps/clicks on a collider, new click is detected
-        if (OnCollider())
+        if (Input.GetMouseButtonUp(0))
         {
             currentCount++;
             lastClickTime = 0;
@@ -50,8 +43,11 @@ public class AnimationHandler : MonoBehaviour
         }
 
         //Play animation
-        if (currentCount == 5)
-            model.GetComponent<Animation>().Play();
+        if (currentCount == 2)
+        {
+            Debug.Log("CLICK!!!");
+            animator.SetTrigger("armRaise");
+        }            
 
         //Reset values
         currentCount = 0;
