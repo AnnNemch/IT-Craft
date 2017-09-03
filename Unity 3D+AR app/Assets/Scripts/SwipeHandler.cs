@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-//This script detects dragging gestures on screen 
+/// <summary>
+/// Detects dragging gestures on screen 
+/// </summary>
 public class SwipeHandler : MonoBehaviour
 {
     private bool doubleTouch, left, right, up, down;
@@ -28,7 +30,7 @@ public class SwipeHandler : MonoBehaviour
 
 
         //For testing the app with mobile phone
-        //Plays 'jump' animation if the user touches screen with two fingers
+        //Double touch is detected if the user touches screen with two fingers
         if (Input.touchCount == 2 && Input.GetTouch(0).phase == TouchPhase.Ended)
             doubleTouch = true;
         //If user touches the screen with one finger
@@ -48,7 +50,9 @@ public class SwipeHandler : MonoBehaviour
         Swipe();          
     }
 
-    //Resets the values to their original values
+    /// <summary>
+    /// Resets the values to their original values
+    /// </summary>
     private void Reset()
     {
         isDragging = false;
@@ -56,7 +60,9 @@ public class SwipeHandler : MonoBehaviour
         swipeDelta = Vector2.zero;
     }
 
-    //The function handles gestures
+    /// <summary>
+    /// The function handles gestures
+    /// </summary>
     private void Swipe()
     {
         swipeDelta = Vector2.zero;

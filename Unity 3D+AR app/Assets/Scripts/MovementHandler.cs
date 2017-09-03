@@ -2,18 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveEventHandler : MonoBehaviour
+/// <summary>
+/// Controls the motion of the object
+/// </summary>
+public class MovementHandler : MonoBehaviour
 {
     public SwipeHandler swipe;
-    //public GameObject model;
+    public GameObject model;
+
     private Animator animator;
 	
 	void Start () {
-        animator = GetComponent<Animator>();
+        animator = model.GetComponent<Animator>();
 	}
 	
-	// Update is called once per frame
+    /// <summary>
+    /// Play specific animation depending on the swipe type
+    /// </summary>
 	void Update () {
+        //if user touches the screen with two fingers
         if (swipe.DoubleTouch)
             animator.SetTrigger("Jump");
 		if(swipe.Left)
